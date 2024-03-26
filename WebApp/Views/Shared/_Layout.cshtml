@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @* <title>@ViewData["Title"] - Silicon</title> *@
+    @if (!string.IsNullOrWhiteSpace(ViewData["Title"]?.ToString()))
+    {
+        <title>@ViewData["Title"] - Silicon</title>
+
+    }
+    else
+    {
+        <title> Silicon</title>
+    }
+    <link rel="stylesheet" href="~/css/bootstrap.min.css" />
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/theme.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/SignUp.scss" asp-append-version="true" />
+
+    @*  <link rel="stylesheet" href="~/Crud_OperationsDotNet8.styles.css" asp-append-version="true" /> *@
+</head>
+<body>
+
+    <header class="header navbar navbar-expand-lg position-absolute navbar-sticky">
+        <div class="container px-3">
+            <a href="index.html" class="navbar-brand pe-3">
+                <img src="~/images/logo.svg" width="47" alt="Silicon">
+                Silicon
+            </a>
+            <div id="navbarNav" class="offcanvas offcanvas-end">
+                <div class="offcanvas-header border-bottom">
+                    <h5 class="offcanvas-title">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="OverView" asp-action="Index">OverView</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Features" asp-action="Index">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Privacy">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Details">Account</a>
+                        </li>
+                    </ul>
+                </div>
+                @* <div class="offcanvas-header border-top">
+                <a href="" class="btn btn-primary w-100" target="_blank" rel="noopener">
+                <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+                LogIn
+                </a>
+                </div> *@
+            </div>
+            @*  <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
+            <input type="checkbox" class="form-check-input" id="theme-mode">
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
+            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
+            </div> *@
+            <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                <i class="#"></i>
+                SignUp
+            </a>
+            <a asp-controller="Auth" asp-action="SignIn" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                <i class="#"></i>
+                SignIn
+            </a>
+        </div>
+    </header>
+
+
+
+
+    @*  <header class="container px-3">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"  mb-3>
+    <div class="container-fluid">
+    <img  src="images/logo.svg" width="30px" height="30px" />
+    <a class="navbar-brand px-2" asp-area="" asp-controller="Home" asp-action="Index" >Silecon</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Games" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Courses</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Account</a>
+    </li>
+    </ul>
+
+    <div class="d-flex">
+    <button type="button" class="btn btn-info disabled" style="margin-right:20px;">SignIn</button>
+    <button type="button" class="btn btn-info disabled">SignUp</button>
+
+    </div>
+    </div>
+    </div>
+    </nav>
+    </header> *@
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+   
+    @*  <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2024 - Crud_OperationsDotNet8 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

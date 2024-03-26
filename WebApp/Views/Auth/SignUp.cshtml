@@ -1,0 +1,65 @@
+﻿
+
+@model SignUpViewModel
+
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+<div class="container d-flex flex-wrap justify-content-center  h-100 pt-5">
+    <div class="w-100 align-self-end pt-1 pt-md-4 pb-4" style="max-width: 526px;">
+        <h1 class="text-center text-xl-start">Create Account</h1>
+        <p class="text-center text-xl-start pb-3 mb-3">Already have an account? <a asp-controller="Auth" asp-action="SignIn"> Sign in here.</a></p>
+        
+        <form method="post" asp-controller="Auth" asp-action="SignUp" novalidate>
+            <div class="row">
+                <div class="col-12">
+                    <div class="position-relative mb-4">
+                        <label asp-for="Form.FirstName" class="form-label fs-base">First name</label>
+                        <input asp-for="Form.FirstName" type="text" id="FirstName" class="form-control form-control-lg" required>
+                        <span asp-validation-for="Form.FirstName"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="position-relative mb-4">
+                        <label asp-for="Form.LastName" class="form-label fs-base">Last name</label>
+                        <input asp-for="Form.LastName" type="text" id="LastName" class="form-control form-control-lg" required>
+                        <span asp-validation-for="Form.LastName"></span>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="position-relative mb-4">
+                        <label asp-for="Form.Eamil" class="form-label fs-base">Email</label>
+                        <input asp-for="Form.Eamil" type="email" id="email" class="form-control form-control-lg" required>
+                        <span asp-validation-for="Form.Eamil"></span>
+                    </div>
+                </div>
+                <div class="col-12 mb-4">
+                    <label asp-for="Form.Eamil" class="form-label fs-base">Password</label>
+                    <input asp-for="Form.Password" type="password" id="password" class="form-control form-control-lg" required>
+                    <span asp-validation-for="Form.Password"></span>
+                  
+                </div>
+                <div class="col-12 mb-4">
+                    <label asp-for="Form.ConfirmPassword" class="form-label fs-base">Confirm password</label>
+                    <input asp-for="Form.ConfirmPassword" type="password" id="ConfirmPassword" class="form-control form-control-lg" required>
+                    <span asp-validation-for="Form.ConfirmPassword"></span>
+                  
+                </div>
+            </div>
+            <div class="mb-4">
+                <div class="form-check">
+                    <input asp-for="Form.TermsAndConditions" type="checkbox">
+                   
+                    <label asp-for="Form.TermsAndConditions" class="form-check-label fs-base">I agree to <a href="#">Terms &amp; Conditions</a></label>
+                     <span asp-validation-for="Form.TermsAndConditions"></span>
+                </div>
+            </div>
+            <button  type="submit" class="btn btn-primary shadow-primary btn-lg w-100">Sign up</button>
+        </form>
+      
+    </div>
+  
+</div>
+
+@await Html.PartialAsync("_ValidationScriptsPartial")
