@@ -1,14 +1,19 @@
-﻿using System.ComponentModel.DataAnnotations;
-using WebApp.Helpers;
+﻿using Infrastructure.Helpers;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApp.Models
+namespace Infrastructure.Models
 {
     public class SignUpModel
     {
         [DataType(DataType.Text)]
         [Display(Name = "First Name", Prompt = "Please Enter your First Name", Order = 0)]
         [Required(ErrorMessage = "Invalid First Name")]
-        [MinLength(2,ErrorMessage ="First Name must be more than 2 char")]
+        [MinLength(2, ErrorMessage = "First Name must be more than 2 char")]
         public string FirstName { get; set; } = null;
 
         [DataType(DataType.Text)]
@@ -37,10 +42,8 @@ namespace WebApp.Models
         public string ConfirmPassword { get; set; } = null;
 
         [Display(Name = "Agree With terms and conditions", Order = 5)]
-       
-        [TermsCheckBox(ErrorMessage ="you must accept terms & conditions")]
+
+       [TermsCheckBox(ErrorMessage = "you must accept terms & conditions")]
         public bool TermsAndConditions { get; set; } = false;
     }
-
-    
 }

@@ -1,4 +1,13 @@
-﻿body {
+﻿
+.alert{
+    background-color:red;
+    display:flex;
+    justify-content:center;
+    padding:15px;
+    border-radius:8px;
+}
+
+body {
 }
 .span {
     position:relative;

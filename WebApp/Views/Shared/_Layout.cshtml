@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using Infrastructure.Entites
+@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<UserEntity> _signInManger
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -45,12 +50,15 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Features" asp-action="Index">Features</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Privacy">Courses</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Details">Account</a>
-                        </li>
+                         @if (_signInManger.IsSignedIn(User))
+                        
+                          {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                            </li>
+                        }
+                          
+                       
                     </ul>
                 </div>
                 @* <div class="offcanvas-header border-top">
@@ -65,9 +73,30 @@
             <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
             <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
             </div> *@
-            <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+
+            @if (_signInManger.IsSignedIn(User))
+            {
+                <a asp-controller="Auth" asp-action="SignOut" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                    <i class="#"></i>
+                    SignOut
+                </a>
+                <a asp-controller="Account" asp-action="Details" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                    <i class="#"></i>
+                    My Account
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                    <i class="#"></i>
+                    SignUp
+                </a>
+                <a asp-controller="Auth" asp-action="SignIn" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+                    <i class="#"></i>
+                    SignIn
+                </a>
+            }
+            
             <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
                 <i class="#"></i>
                 SignUp

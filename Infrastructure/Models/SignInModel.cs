@@ -1,6 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebApp.Models
+namespace Infrastructure.Models
 {
     public class SignInModel
     {
@@ -13,14 +18,13 @@ namespace WebApp.Models
         public string Eamil { get; set; } = null;
 
         [DataType(DataType.Password)]
-        [Display(Name = "Password", Prompt = "Please Enter your Password", Order =1)]
+        [Display(Name = "Password", Prompt = "Please Enter your Password", Order = 1)]
         [Required(ErrorMessage = "Invalid Password")]
         public string Password { get; set; } = null;
 
-       
-        [Display(Name = "Remember Me", Order = 2)]
-      
-        public bool RememberMe { get; set; }
 
+        [Display(Name = "Remember Me", Order = 2)]
+
+        public bool RememberMe { get; set; }
     }
 }
