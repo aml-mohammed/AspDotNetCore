@@ -26,7 +26,7 @@ namespace Infrastructure.Factories
             {
                 return new AddressEntity()
                 {
-                    StreetName = streetName,
+                    //StreetName = streetName,
                     PostalCode = postalCode,
                     City = city
                 };
@@ -41,7 +41,7 @@ namespace Infrastructure.Factories
                 return new AddressEntity()
                 {
                     Id=entity.Id,
-                    StreetName = entity.StreetName,
+                  //  StreetName = entity.StreetName,
                     PostalCode = entity.PostalCode,
                     City = entity.City
                 };

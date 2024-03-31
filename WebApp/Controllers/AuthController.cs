@@ -22,6 +22,7 @@ namespace WebApp.Controllers
         }
 
         [Route("/SignUp")]
+        [HttpGet]
         public IActionResult SignUp()
         {
             if (_signInManager.IsSignedIn(User))
@@ -61,6 +62,7 @@ namespace WebApp.Controllers
         }
 
         [Route("/SignIn")]
+        [HttpGet]
         public IActionResult SignIn()
         {
             if (_signInManager.IsSignedIn(User))
@@ -88,7 +90,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public new async Task<IActionResult> SignOut()
         {
-           await HttpContext.SignOutAsync();
+            await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
         }
     }

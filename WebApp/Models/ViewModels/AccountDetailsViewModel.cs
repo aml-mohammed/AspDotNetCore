@@ -1,15 +1,12 @@
-﻿namespace WebApp.Models.ViewModels
+﻿using Infrastructure.Entites;
+
+namespace WebApp.Models.ViewModels
 {
     public class AccountDetailsViewModel
     {
-        public string Title { get; set; } = "Account Details";
-        public AccountDteailsModel BasicInfo { get; set; } = new AccountDteailsModel()
-        {
-            ProfileImage="/images/profile.jpg",
-            FirstName="Mohamed",
-            LastName="Rafael",
-            Eamil="mohamed@gmail.com"
-        };
-        public AccountAddressInfoModel AddressInfo { get; set; } = new AccountAddressInfoModel();
+        //  public UserEntity User { get; set; } = null!;
+        public ProfileInfoViewModel? ProfileInfo { get; set; }
+        public BasicInfoFormViewModel? BasicInfo { get; set; }
+        public AddressInfoFormViewModel? AddressInfo { get; set; }
     }
 }

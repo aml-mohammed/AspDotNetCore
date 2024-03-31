@@ -25,6 +25,17 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
 
 }).AddEntityFrameworkStores<DataContext>();
 
+builder.Services.ConfigureApplicationCookie(x =>
+{
+    x.LoginPath = "/signin";
+    x.LogoutPath = "/signout";
+    x.AccessDeniedPath = "/denied";
+    x.Cookie.HttpOnly = true;
+    x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+    x.ExpireTimeSpan = TimeSpan.FromDays(1);
+    x.SlidingExpiration = true;
+});
+builder.Services.AddScoped<AddressManger>();
 builder.Services.AddScoped<UserRepository>();
 
 builder.Services.AddScoped<AddressRepository>();

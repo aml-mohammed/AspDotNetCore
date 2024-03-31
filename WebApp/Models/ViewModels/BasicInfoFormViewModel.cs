@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models
+namespace WebApp.Models.ViewModels
 {
-    public class AccountDteailsModel
+    public class BasicInfoFormViewModel
     {
-        [DataType(DataType.ImageUrl)]
-        public string? ProfileImage { get; set; }
+        public string UserId { get; set; } = null!;
+
+        //[DataType(DataType.ImageUrl)]
+        //public string? ProfileImage { get; set; }
 
         [Display(Name = "First Name", Prompt = "Please Enter your First Name", Order = 0)]
         [Required(ErrorMessage = "Invalid First Name")]
@@ -24,7 +26,7 @@ namespace WebApp.Models
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number", Prompt = "Please Enter your Phone", Order = 3)]
         [Required(ErrorMessage = " Phone Is Required")]
-        public string Phone { get; set; } = null;
+        public string? Phone { get; set; } 
         [Display(Name = "Bio", Prompt = "Add a short bio", Order = 4)]
         [DataType(DataType.MultilineText)]
 

@@ -18,7 +18,7 @@ namespace Infrastructure.Entites
         //public string Password { get; set; } = null!;
         //public string SecurityKey { get; set; } = null!;
         //public string? Phone { get; set; }
-        //public string? Biography { get; set; }
+        public string? Bio { get; set; }
         //public DateTime? Created { get; set; }
         //public DateTime? Modified { get; set; }
 

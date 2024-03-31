@@ -50,61 +50,42 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Features" asp-action="Index">Features</a>
                         </li>
-                         @if (_signInManger.IsSignedIn(User))
+                          @if (_signInManger.IsSignedIn(User))
                         
                           {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Courses" asp-action="Index">Courses</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="courses" asp-action="index">courses</a>
                             </li>
                         }
                           
                        
                     </ul>
                 </div>
-                @* <div class="offcanvas-header border-top">
-                <a href="" class="btn btn-primary w-100" target="_blank" rel="noopener">
-                <i class="bx bx-cart fs-4 lh-1 me-1"></i>
-                LogIn
-                </a>
-                </div> *@
+               
             </div>
-            @*  <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
-            <input type="checkbox" class="form-check-input" id="theme-mode">
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
-            </div> *@
+          
+           <div>
+                @if (_signInManger.IsSignedIn(User))
+                {
+                    <a asp-controller="Auth" asp-action="SignOut" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">SignOut</a>
+                    <a asp-controller="Account" asp-action="Details" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex">  My Account </a>
+                }
+                else
+                {
+                    <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex">
+                     
+                        SignUp
+                    </a>
+                    <a asp-controller="Auth" asp-action="SignIn" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex">
+                        <i class=""></i>
+                        SignIn
+                    </a>
+                }
 
-            @if (_signInManger.IsSignedIn(User))
-            {
-                <a asp-controller="Auth" asp-action="SignOut" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                    <i class="#"></i>
-                    SignOut
-                </a>
-                <a asp-controller="Account" asp-action="Details" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                    <i class="#"></i>
-                    My Account
-                </a>
-            }
-            else
-            {
-                <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                    <i class="#"></i>
-                    SignUp
-                </a>
-                <a asp-controller="Auth" asp-action="SignIn" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                    <i class="#"></i>
-                    SignIn
-                </a>
-            }
-            
-            <a asp-controller="Auth" asp-action="SignUp" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                <i class="#"></i>
-                SignUp
-            </a>
-            <a asp-controller="Auth" asp-action="SignIn" class="btn btn-secondary  btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-                <i class="#"></i>
-                SignIn
-            </a>
+            </div>
+
+           
+          
         </div>
     </header>
 
